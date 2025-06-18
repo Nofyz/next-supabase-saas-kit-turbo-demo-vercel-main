@@ -1,7 +1,19 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
-import { ArrowRightIcon, LayoutDashboard } from 'lucide-react';
+import { 
+  ArrowRightIcon, 
+  LayoutDashboard, 
+  Zap, 
+  Users, 
+  Shield, 
+  BarChart3, 
+  FolderOpen,
+  Sparkles,
+  Play,
+  CheckCircle
+} from 'lucide-react';
 
 import { PricingTable } from '@kit/billing-gateway/marketing';
 import {
@@ -17,18 +29,22 @@ import {
 } from '@kit/ui/marketing';
 import { Trans } from '@kit/ui/trans';
 
+import { FloatingElements, FloatingCard } from './_components/floating-elements';
+
 import billingConfig from '~/config/billing.config';
 import pathsConfig from '~/config/paths.config';
 import { withI18n } from '~/lib/i18n/with-i18n';
 
 function Home() {
   return (
-    <div className={'mt-4 flex flex-col space-y-24 py-14'}>
+    <div className={'mt-4 flex flex-col space-y-24 py-14 relative'}>
+      <FloatingElements />
+      
       <div className={'container mx-auto'}>
         <Hero
           pill={
             <Pill label={'New'}>
-              <span>The SaaS Starter Kit for ambitious developers</span>
+              <span>AI-Powered Swipe Collection Platform</span>
               <PillActionButton asChild>
                 <Link href={'/auth/sign-up'}>
                   <ArrowRightIcon className={'h-4 w-4'} />
@@ -38,30 +54,108 @@ function Home() {
           }
           title={
             <>
-              <span>The ultimate SaaS Starter</span>
-              <span>for your next project</span>
+              <span>Collect, Organize &</span>
+              <span>Analyze Creative Ads</span>
             </>
           }
           subtitle={
             <span>
-              Build and Ship a SaaS faster than ever before with the next-gen
-              SaaS Starter Kit. Ship your SaaS in days, not months.
+              The ultimate platform for marketers, designers, and creators to swipe, 
+              organize, and analyze winning ads from Facebook, TikTok, Google, and more. 
+              Powered by AI insights.
             </span>
           }
           cta={<MainCallToActionButton />}
           image={
-            <Image
-              priority
-              className={
-                'dark:border-primary/10 rounded-xl border border-gray-200'
-              }
-              width={3558}
-              height={2222}
-              src={`/images/dashboard.webp`}
-              alt={`App Image`}
-            />
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative"
+            >
+              <Image
+                priority
+                className={
+                  'dark:border-primary/10 rounded-xl border border-gray-200 shadow-2xl'
+                }
+                width={3558}
+                height={2222}
+                src={`/images/dashboard.webp`}
+                alt={`SwipeBuilder Dashboard`}
+              />
+              <motion.div
+                className="absolute -top-4 -right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium flex items-center gap-2"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: 1, type: "spring", stiffness: 200 }}
+              >
+                <CheckCircle className="h-4 w-4" />
+                Live Demo
+              </motion.div>
+            </motion.div>
           }
         />
+      </div>
+
+      {/* How It Works Section */}
+      <div className={'container mx-auto'}>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className={'flex flex-col items-center space-y-16'}
+        >
+          <div className="text-center space-y-4">
+            <h2 className="text-4xl font-bold tracking-tight">
+              How It Works
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl">
+              Get started in minutes with our simple 3-step process
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-4xl">
+            {[
+              {
+                step: "01",
+                title: "Install Extension",
+                description: "Add our Chrome extension to start swiping ads from any platform",
+                icon: Zap,
+                delay: 0.2
+              },
+              {
+                step: "02", 
+                title: "Swipe & Save",
+                description: "Click the extension to capture ads with one click and auto-save",
+                icon: Sparkles,
+                delay: 0.4
+              },
+              {
+                step: "03",
+                title: "Organize & Analyze", 
+                description: "Use AI insights to organize your collection and discover patterns",
+                icon: BarChart3,
+                delay: 0.6
+              }
+            ].map((item, index) => (
+              <FloatingCard key={index} delay={item.delay}>
+                <div className="text-center space-y-4 p-6 rounded-xl border bg-card hover:shadow-lg transition-all duration-300">
+                  <div className="relative">
+                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <item.icon className="h-8 w-8 text-primary" />
+                    </div>
+                    <div className="absolute -top-2 -right-2 bg-primary text-primary-foreground w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold">
+                      {item.step}
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-semibold">{item.title}</h3>
+                  <p className="text-muted-foreground">{item.description}</p>
+                </div>
+              </FloatingCard>
+            ))}
+          </div>
+        </motion.div>
       </div>
 
       <div className={'container mx-auto'}>
@@ -72,55 +166,99 @@ function Home() {
             heading={
               <>
                 <b className="font-medium tracking-tighter dark:text-white">
-                  The ultimate SaaS Starter Kit
+                  Everything you need
                 </b>
                 .{' '}
                 <span className="text-muted-foreground font-normal tracking-tighter">
-                  Unleash your creativity and build your SaaS faster than ever
-                  with Makerkit.
+                  Powerful features to supercharge your creative research and ad analysis.
                 </span>
               </>
             }
             icon={
               <FeatureShowcaseIconContainer>
                 <LayoutDashboard className="h-5" />
-                <span>All-in-one solution</span>
+                <span>Complete Platform</span>
               </FeatureShowcaseIconContainer>
             }
           >
             <FeatureGrid>
-              <FeatureCard
-                className={'relative col-span-1 overflow-hidden'}
-                label={'Beautiful Dashboard'}
-                description={`Makerkit provides a beautiful dashboard to manage your SaaS business.`}
-              ></FeatureCard>
+              <FloatingCard delay={0.1}>
+                <FeatureCard
+                  className={'relative col-span-1 overflow-hidden hover:shadow-lg transition-all duration-300'}
+                  label={'Smart Swipe Collection'}
+                  description={`Capture ads from Facebook, TikTok, Google, and more with one click. AI automatically extracts key insights and metadata.`}
+                />
+              </FloatingCard>
 
-              <FeatureCard
-                className={'relative col-span-1 w-full overflow-hidden'}
-                label={'Authentication'}
-                description={`Makerkit provides a variety of providers to allow your users to sign in.`}
-              ></FeatureCard>
+              <FloatingCard delay={0.2}>
+                <FeatureCard
+                  className={'relative col-span-1 w-full overflow-hidden hover:shadow-lg transition-all duration-300'}
+                  label={'AI-Powered Organization'}
+                  description={`Automatically categorize and tag your swipes. Use AI to discover patterns and insights across your collection.`}
+                />
+              </FloatingCard>
 
-              <FeatureCard
-                className={'relative col-span-1 overflow-hidden'}
-                label={'Multi Tenancy'}
-                description={`Multi tenant memberships for your SaaS business.`}
-              />
+              <FloatingCard delay={0.3}>
+                <FeatureCard
+                  className={'relative col-span-1 overflow-hidden hover:shadow-lg transition-all duration-300'}
+                  label={'Team Collaboration'}
+                  description={`Share collections with your team. Real-time collaboration with comments, likes, and shared boards.`}
+                />
+              </FloatingCard>
 
-              <FeatureCard
-                className={'relative col-span-1 overflow-hidden md:col-span-2'}
-                label={'Billing'}
-                description={`Makerkit supports multiple payment gateways to charge your customers.`}
-              />
+              <FloatingCard delay={0.4}>
+                <FeatureCard
+                  className={'relative col-span-1 overflow-hidden md:col-span-2 hover:shadow-lg transition-all duration-300'}
+                  label={'Advanced Analytics & Insights'}
+                  description={`Track performance metrics, identify trends, and get AI-powered recommendations to improve your ad strategy.`}
+                />
+              </FloatingCard>
 
-              <FeatureCard
-                className={'relative col-span-1 overflow-hidden'}
-                label={'Plugins'}
-                description={`Extend your SaaS with plugins that you can install using the CLI.`}
-              />
+              <FloatingCard delay={0.5}>
+                <FeatureCard
+                  className={'relative col-span-1 overflow-hidden hover:shadow-lg transition-all duration-300'}
+                  label={'Secure & Private'}
+                  description={`Enterprise-grade security with end-to-end encryption. Your data stays private and secure.`}
+                />
+              </FloatingCard>
             </FeatureGrid>
           </FeatureShowcase>
         </div>
+      </div>
+
+      {/* Social Proof Section */}
+      <div className={'container mx-auto'}>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className={'flex flex-col items-center space-y-12 py-16'}
+        >
+          <div className="text-center space-y-4">
+            <h2 className="text-3xl font-bold tracking-tight">
+              Trusted by 10,000+ marketers
+            </h2>
+            <p className="text-muted-foreground">
+              Join the community of creative professionals who trust SwipeBuilder
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 opacity-60">
+            {['Company 1', 'Company 2', 'Company 3', 'Company 4'].map((company, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 0.6, scale: 1 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="h-12 bg-muted rounded flex items-center justify-center text-sm font-medium"
+              >
+                {company}
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
 
       <div className={'container mx-auto'}>
@@ -131,8 +269,8 @@ function Home() {
         >
           <SecondaryHero
             pill={<Pill label="Start for free">No credit card required.</Pill>}
-            heading="Fair pricing for all types of businesses"
-            subheading="Get started on our free plan and upgrade when you are ready."
+            heading="Simple, transparent pricing"
+            subheading="Choose the plan that fits your team size and needs. Scale as you grow."
           />
 
           <div className={'w-full'}>
@@ -173,8 +311,9 @@ function MainCallToActionButton() {
       </CtaButton>
 
       <CtaButton variant={'link'}>
-        <Link href={'/contact'}>
-          <Trans i18nKey={'common:contactUs'} />
+        <Link href={'/contact'} className="flex items-center gap-2">
+          <Play className="h-4 w-4" />
+          <span>Watch Demo</span>
         </Link>
       </CtaButton>
     </div>
