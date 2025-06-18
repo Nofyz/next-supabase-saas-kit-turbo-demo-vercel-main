@@ -1,0 +1,150 @@
+{
+  "subscriptionTabSubheading": "Administre sua Assinatura e Faturamento",
+  "planCardTitle": "Seu Plano",
+  "planCardDescription": "Abaixo estão os detalhes do seu plano atual. Você pode alterar seu plano ou cancelar sua assinatura a qualquer momento.",
+  "planRenewal": "Renova a cada {{interval}} por {{price}}",
+  "planDetails": "Detalhes do Plano",
+  "checkout": "Finalizar Pagamento",
+  "trialEndsOn": "Sua avaliação termina em",
+  "billingPortalCardButton": "Visitar o Portal de Faturamento",
+  "billingPortalCardTitle": "Administre seus Detalhes de Faturamento",
+  "billingPortalCardDescription": "Visite seu Portal de Faturamento para administrar sua assinatura e faturamento. Você pode atualizar ou cancelar seu plano, ou baixar suas faturas.",
+  "cancelAtPeriodEndDescription": "Sua assinatura está programada para ser cancelada em {{- endDate }}.",
+  "renewAtPeriodEndDescription": "Sua assinatura está programada para ser renovada em {{- endDate }}",
+  "noPermissionsAlertHeading": "Você não tem permissões para alterar as configurações de faturamento",
+  "noPermissionsAlertBody": "Por favor, entre em contato com o proprietário da sua organização para alterar as configurações de faturamento da sua organização.",
+  "checkoutSuccessTitle": "Pronto! Tudo está em ordem.",
+  "checkoutSuccessDescription": "Obrigado por assinar, processamos sua assinatura com sucesso! Um e-mail de confirmação será enviado para {{ customerEmail }}.",
+  "checkoutSuccessBackButton": "Ir para o Aplicativo",
+  "cannotManageBillingAlertTitle": "Você não pode administrar o faturamento",
+  "cannotManageBillingAlertDescription": "Você não tem permissões para administrar o faturamento. Por favor, entre em contato com o proprietário da sua organização.",
+  "manageTeamPlan": "Administre seu Plano de Equipe",
+  "manageTeamPlanDescription": "Escolha um plano que atenda às necessidades da sua equipe. Você pode fazer upgrade ou downgrade do seu plano a qualquer momento.",
+  "basePlan": "Plano Base",
+  "billingInterval": {
+    "label": "Escolha seu intervalo de faturamento",
+    "month": "Cobrado mensalmente",
+    "year": "Cobrado anualmente"
+  },
+  "perMonth": "por mês",
+  "custom": "Personalizado",
+  "lifetime": "Vitalício",
+  "trialPeriod": "Avaliação de {{period}} dias",
+  "perPeriod": "por {{period}}",
+  "processing": "Processando...",
+  "proceedToPayment": "Prosseguir para Pagamento",
+  "startTrial": "Iniciar Avaliação",
+  "perTeamMember": "Por membro da equipe",
+  "perUnit": "Por uso de {{unit}}",
+  "teamMembers": "Membros da Equipe",
+  "includedUpTo": "Até {{upTo}} {{unit}} incluído no plano",
+  "fromPreviousTierUpTo": "por cada {{unit}} para os próximos {{ upTo }} {{ unit }}",
+  "andAbove": "acima de {{ previousTier }} {{ unit }}",
+  "setupFee": "mais uma taxa de configuração de {{ setupFee }}",
+  "perUnitIncluded": "({{included}} incluído)",
+  "featuresLabel": "Recursos",
+  "detailsLabel": "Detalhes",
+  "planPickerLabel": "Escolha seu plano preferido",
+  "planCardLabel": "Administre seu Plano",
+  "planPickerAlertErrorTitle": "Erro ao solicitar o pagamento",
+  "planPickerAlertErrorDescription": "Houve um erro ao solicitar o pagamento. Por favor, tente novamente mais tarde.",
+  "subscriptionCancelled": "Assinatura Cancelada",
+  "cancelSubscriptionDate": "Sua assinatura será cancelada ao final do período",
+  "status": {
+    "free": {
+      "badge": "Plano Gratuito",
+      "heading": "Atualmente você está no Plano Gratuito",
+      "description": "Você está em um plano gratuito. Você pode fazer upgrade para um plano pago a qualquer momento."
+    },
+    "active": {
+      "badge": "Ativo",
+      "heading": "Sua assinatura está ativa",
+      "description": "Sua assinatura está ativa. Você pode administrar sua assinatura e faturamento no Portal do Cliente."
+    },
+    "trialing": {
+      "badge": "Em avaliação",
+      "heading": "Você está em um período de avaliação",
+      "description": "Seu período de avaliação terminará em {{- trialEndDate }}."
+    },
+    "past_due": {
+      "badge": "Atrasado",
+      "heading": "Seu pagamento está atrasado",
+      "description": "Seu pagamento está atrasado. Por favor, atualize seu método de pagamento."
+    },
+    "canceled": {
+      "badge": "Cancelado",
+      "heading": "Sua assinatura foi cancelada",
+      "description": "Sua assinatura foi cancelada. Você pode reativá-la a qualquer momento."
+    },
+    "unpaid": {
+      "badge": "Não pago",
+      "heading": "Sua assinatura não foi paga",
+      "description": "Sua assinatura não foi paga. Por favor, atualize seu método de pagamento."
+    },
+    "incomplete": {
+      "badge": "Incompleto",
+      "heading": "Seu pagamento está em processamento",
+      "description": "Estamos aguardando o processamento do seu pagamento. Por favor, tenha paciência."
+    },
+    "incomplete_expired": {
+      "badge": "Expirado",
+      "heading": "Seu pagamento expirou",
+      "description": "Seu pagamento expirou. Por favor, atualize seu método de pagamento."
+    },
+    "paused": {
+      "badge": "Pausado",
+      "heading": "Sua assinatura está pausada",
+      "description": "Sua assinatura está pausada. Você pode retomá-la a qualquer momento."
+    },
+    "succeeded": {
+      "badge": "Bem-sucedido",
+      "heading": "Seu pagamento foi bem-sucedido",
+      "description": "Seu pagamento foi bem-sucedido. Obrigado por assinar!"
+    },
+    "pending": {
+      "badge": "Pendente",
+      "heading": "Seu pagamento está pendente",
+      "description": "Seu pagamento está pendente. Por favor, tenha paciência."
+    },
+    "failed": {
+      "badge": "Falhou",
+      "heading": "Seu pagamento falhou",
+      "description": "Seu pagamento falhou. Por favor, atualize seu método de pagamento."
+    }
+  },
+  "plans": {
+    "features": {
+      "fileStorage": "Armazenamento de arquivos",
+      "maxTasks": "Até 10 tarefas",
+      "chatSupport": "Suporte por chat"
+    },
+    "starter": {
+      "name": "Inicial",
+      "description": "Para equipes pequenas que estão começando",
+      "badge": "Valor",
+      "base": "Base",
+      "features": {
+        "maxTokens": "Até 500k tokens"
+      }
+    },
+    "pro": {
+      "name": "Pro",
+      "description": "Para equipes em crescimento",
+      "badge": "Popular",
+      "base": "Base",
+      "features": {
+        "maxTokens": "Até 3M tokens"
+      }
+    },
+    "enterprise": {
+      "name": "Empresarial",
+      "description": "Para grandes equipes e organizações",
+      "badge": "Personalizado",
+      "base": "Base",
+      "features": {
+        "maxTokens": "Tokens ilimitados",
+        "chatSupport": "Suporte prioritário"
+      }
+    }
+  }
+}
